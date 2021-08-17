@@ -1,6 +1,7 @@
 <template>
   <div>
-    <h1>当前计数为：{{ sum }}</h1>
+    <h1>当前计数为：{{ $store.state.sum }}</h1>
+    <h3>当前计数放大十倍：{{ $store.getters.bigSum }}</h3>
     <select v-model.number="n">
       <option value="1">1</option>
       <option value="2">2</option>
@@ -16,35 +17,34 @@
 <script>
 export default {
   name: "Count",
-  data(){
-    return{
-      n:1, //用户选择的数字
-      sum:0 //当前的和
+  data() {
+    return {
+      n: 1, //用户选择的数字
+
     }
   },
-  methods:{
-    increment(){
-      this.sum += this.n
+  methods: {
+    increment() {
+      this.$store.commit('JIA', this.n)
     },
-    decrement(){
-      this.sum -= this.n
+    decrement() {
+      this.$store.commit('JIAN', this.n)
     },
-    incrementOdd(){
-      if(this.sum % 2){
-        this.sum += this.n
-      }
+    incrementOdd() {
+      this.$store.dispatch('jiaOdd', this.n)
     },
-    incrementWait(){
-      setTimeout(()=>{
-        this.sum += this.n
-      },500)
+    incrementWait() {
+      this.$store.dispatch('jiaWait', this.n)
     },
+  },
+  mounted() {
+
   }
 }
 </script>
 
 <style>
-button{
+button {
   margin-left: 5px;
 }
 </style>
