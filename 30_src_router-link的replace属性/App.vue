@@ -11,7 +11,7 @@
           <!-- <a href="./home.html" class="list-group-item">Home</a>-->
 
           <!--借助router-link实现页面跳转 -->
-          <!--         replace 控制路由跳转时操作浏览器历史记录的模式，push是追加历史记录，replace是替换当前记录，默认是push-->
+          // replace 控制路由跳转时操作浏览器历史记录的模式，push是追加历史记录，replace是替换当前记录，默认是push
           <router-link replace class="list-group-item" active-class="active" to="/about">about</router-link>
           <router-link replace class="list-group-item" active-class="active" to="/home">Home</router-link>
         </div>

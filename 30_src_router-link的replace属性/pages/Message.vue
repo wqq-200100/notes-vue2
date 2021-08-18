@@ -6,17 +6,15 @@
         <!--        <router-link :to="`/home/message/detail/${m.id}/${m.title}`">{{ m.title }}</router-link>&nbsp;&nbsp;-->
 
         <!--跳转路由并携带params参数，to的对象写法 -->
-        <router-link :to="{
+                <router-link :to="{
                   name:'xiangqing', //不能使用path配置项，必须使用name配置项
                   query:{
                     id:m.id,
                     title:m.title
                   }
                 }">
-          {{ m.title }}
-        </router-link>
-        <button @click="pushShow(m)">push查看</button>
-        <button @click="replaceShow(m)">preplace查看</button>
+                  {{ m.title }}
+                </router-link>
       </li>
     </ul>
     <hr>
@@ -35,27 +33,7 @@ export default {
         {id: '003', title: '消息003'},
       ]
     }
-  },
-  methods:{
-    pushShow(m){
-      this.$router.push({
-        name:'xiangqing',
-        query: {
-          id: m.id,
-          title: m.title
-        }
-      })
-    },
-    replaceShow(m){
-      this.$router.replace({
-        name:'xiangqing',
-        query: {
-          id: m.id,
-          title: m.title
-        }
-      })
-    }
-  },
+  }
 }
 </script>
 
